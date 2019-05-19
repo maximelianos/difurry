@@ -1,0 +1,441 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{alltt}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{wrapfig}
+\usepackage{indentfirst}
+\usepackage{setspace}
+\usepackage[pdftex]{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{textcomp}
+\usepackage{array}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{ucs}
+\usepackage{tikz} % для создания иллюстраций
+\usetikzlibrary{positioning,arrows}
+
+\usepackage{pifont}
+
+%\usepackage{pgfplots}
+%\pgfplotsset{compat=1.9}
+
+%\topmargin = -1.5cm
+%\marginparwidth = -1cm
+%\marginparsep = 0pt
+%\textwidth = 16cm
+%\textheight = 24cm
+%\oddsidemargin = 0.2cm
+%\parindent = 0.5cm
+%\lineskip = 0.02cm
+%\parskip = 0.2cm
+
+\usepackage{color}
+\usepackage{bigints}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\urlstyle{same}
+
+% https://readthelatexmanual.wordpress.com/2016/02/21/roman-numerals-in-latex/
+\newcommand{\romannum}[1]{\MakeUppercase{\romannumeral #1}}
+% https://tex.stackexchange.com/questions/7032/good-way-to-make-textcircled-numbers
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\newcommand{\framed}[1]{\tikz[baseline=(char.base)]{\node[shape=rectangle,draw,inner sep=4pt] (char) {#1};}}
+\newcommand{\flex}{ \tikz[baseline=(char.base)]{
+%\fill[black]  (-3,-5)--(-4,-6)--(-7,-3)--(-4,0)--(-4,-1)--(-6,-3)--(-5,-3)--(-4,-2)--(-4,-3)--(-5,-4)--(-4,-5)--(-3,-5);
+%--(,)   (-7,-3)--(-7,-2)
+\fill[black]  (-3,-6)--(-4,-6)--(-7.5,-2.5)--(-4,1)--(-4,0)--(-6,-2)--(-6,-3)--(-5,-3)--(-4,-2)--(-3,-2)--(-5,-4)--(-3,-6);
+\fill[black]  (1,-1)--(2,-1)--(0,-3)--(-4,1)--(-3,1)--(0,-2)--(1,-1);
+\fill[black]  (-2,3)--(0,5)--(0,4)--(-1,3)--(0,2)--(1,3)--(2,3)--(2,2)--(1,1)--(2,0)--(3,1)--(4,1)--(2,-1)--(-2,3);
+%\fill[black]  (2,0)--(-1,3)--(1,5)--(2,5)--(0,3)--(1,3)--(2,4)--(3,4)--(3,3)--(2,2)--(2,1)--(4,3)--(4,2)--(2,0);
+%\fill[black]  (5,6)--(2,6)--(3,7)--(5,7)--(5,9)--(6,10)--(6,7)--(9,7)--(8,6)--(6,6)--(6,4)--(5,3)--(5,6);
+\fill[black]  (3,4)--(0,5)--(1,6)--(3,5)--(2,7)--(3,8)--(4,5)--(7,4)--(6,3)--(4,4)--(5,2)--(4,1)--(3,4);
+} } 
+\newcommand{\crossed}[1]{#1\!\!\makebox[0pt]{$\diagup$}\makebox[0pt]{$\diagdown$}\,}
+\newcommand{\newgamma}{\raisebox{0.05em}{$\gamma$}}
+
+%{\bf Alexander Berdnikov <Alexander.Berdnikov@p50.f209.n5030.z2.fidonet.org>}\\
+\def\letus{%
+    \mathord{\setbox0=\hbox{$\exists$}%
+             \hbox{\kern 0.125\wd0%
+                   \vbox to \ht0{%
+                      \hrule width 0.75\wd0%
+                      \vfill%
+                      \hrule width 0.75\wd0}%
+                   \vrule height \ht0%
+                   \kern 0.125\wd0}%
+           }%
+    \,
+}
+
+\newcommand{\infers}{\,\to\,}
+\newcommand{\textinfers}{\;\Rightarrow\;}
+\newcommand{\ex}{Ex:\quad}
+\newcommand{\bfend}{\textbf{--} }
+%\newcommand{\smdot}{...\;}
+%\newcommand{\mat}[1]{ \mkern 4mu \bar {#1} \mkern 4mu }
+\newcommand{\mat}[1]{\overline{#1}}
+%\newcommand{\mat}[1]{\overset{\text{\bfend}}{#1}}
+
+\voffset = -118pt
+\textheight = 820pt
+\hoffset = -112pt
+\textwidth = 600pt
+\newcommand{\htext}{0.46\textwidth}
+\newcommand{\hstext}{0.45\textwidth}
+
+\pagestyle{empty}
+
+
+
+
+
+
+
+
+
+
+\begin{document}
+
+%\scalebox{0.8}{
+\noindent
+\parbox[t][][t]{0.48\textwidth}{
+\setstretch{1.1}
+
+{\centering % 1
+\scalebox{1.8}{\romannum{1}.} Ур. с разделяющимися переменными
+$f(y) \cdot dy = g(x) \cdot dx \infers \int f(y)\,dy = \int g(x)\,dx$\\
+}\vspace{0.5em}
+
+
+$\bullet$\,
+\parbox[t][]{\htext}{
+$y' = f(ax + by + c) \Rightarrow$ замена $y(x)=\cfrac{z(x)-ax-c}{b}$,\\
+$y'(x)=\cfrac{z'(x)-a}{b}$, $z(x)=ax+by(x)+c$}
+
+%\hrule
+%\vbox to 0.5em{}
+\vspace{0.5em}
+
+{\centering  % 2
+\scalebox{1.8}{\romannum{2}.} Однородные уравнения\\
+$M(x,y)dx+N(x,y)dy=0$\\
+\small{\it $M$ и $N$ \bfend  однор. одной и той же степени, т.е.}\\
+$M(kx,ky)=k^n\cdot M(x,y)$\small{\it, то же для $N$}\\
+
+Замена $y(x)=t(x)\cdot x$,\;\; $y'=t'x+t$,\;\; $t(x)=\cfrac{y(x)}{x}$\\
+}\vspace{0.5em}
+
+$\bullet$\;
+\parbox{\htext}{$y' = f\left(\cfrac{a_1x + b_1y + c_1}{a_2x + b_2y + c_2}\right)
+\raisebox{-6pt}{\vbox{\hbox{$\gets l_1$}\hbox{$\gets l_2$}}}
+\;\Rightarrow\; (x_0,y_0)=l_1\cap l_2$,\\
+Замена $x=u+x_0,\;\; y=v+y_0$}\vspace{1em}
+
+$\bullet\quad y(x)=z^m(x),\; z=y^{-m}$
+\vspace{0.5em}
+
+{\centering  % 3
+\scalebox{1.8}{\romannum{3}.} Линейные ур. \romannum{1} порядка\\
+$y'+a(x)y=b(x)$\\
+\parbox[t][]{\htext}{
+\circled{\romannum{1}} Однородное $y'+a(x)y=0 \infers$\small{\it (реш.)} $y_1=y=c \cdot \ldots\;\;\forall c$\vspace{0.5em}\\
+\circled{\romannum{2}} \parbox[t][]{\htext}{Метод вариации постоянной.\\ Реш. в виде $y=c(x)y_1(x)$\\}
+}
+$y'+a(x)y=c'y_1+cy'_1+acy_1=b \infers$\\
+$c'y_1=b \infers c=\int b(x)dx/y_1(x)$\\
+}\vspace{0.5em}
+
+$\bullet$\;
+\parbox[t][]{\htext}{Ур. Бернулли $y' +a(x)y = b(x)y^{\alpha} \infers$\\
+$y^{-\alpha}y' + a(x)y^{1-\alpha} = b(x)$\par\smallskip
+$z(x) = y^{1-\alpha}$,\; $z'(x) = y^{-\alpha}y' (1-\alpha)$ \small{\it (не забудь $y=0$)}
+}\vspace{1em}
+
+$\bullet$\;
+\parbox[t][]{\htext}{Интегрируемые комбинации\\
+$ydy = \cfrac{1}{2}\;dy^2$\quad\;
+$\cfrac{1}{y}\;dy=d\ln|y|$\quad\;
+$xdy + ydx = d(xy)$
+}\vspace{1em}
+
+$\bullet$\;
+\parbox[t][]{\htext}{Ур. Рикатти $y'+a(x)y+b(x)y^2=c(x)$\\
+Если $y_1(x)$ \bfend частное реш., замена $y(x)=y_1(x) + z(x)$\\
+Частное решение можно искать в виде\\
+$y_1 = cx^\alpha,\;\; ce^{\alpha x},\;\; ax^2+bx+c,\;\; ax+b$
+}
+\vspace{0.5em}
+
+{\centering  % 4
+\scalebox{1.8}{\romannum{4}.} Ур. в полных дифференциалах
+$M(x,y)dx+N(x,y)dy=0$ \bfend УПД, если
+$\cfrac{\partial M}{\partial y} \equiv \cfrac{\partial N}{\partial x}$\\
+$\exists F:
+\left\{
+\begin{aligned}
+& \cfrac{\partial F}{\partial x} = M(x,y) \infers F(x,y)=\int M(x,y)dx + c(y)\\
+& \cfrac{\partial F}{\partial y} = N(x,y) \!\infers\! \left(\int M(x,y)dx + c(y)\right)'_y = N(x,y)
+\end{aligned}
+\right.
+$\vspace{1em}
+Отсюда найдём $c(y) = \int c'_y dy = \ldots + c_1\quad \forall c_1$\\
+$dF = 0 \Leftrightarrow$ \small{\it (ответ)} $F = C \quad \forall C$\\
+\small{\it (константа $c_1$ входит в $C$)}\\
+}\vspace{0.5em}
+
+$\bullet$\;
+\parbox[t][]{\htext}{Интегрирующий множитель (!!! не рекомендуется !!!)\\
+$\frac{\partial M}{\partial y} \neq \frac{\partial N}{\partial x}$. Ищем $m(x, y): M\,mdx+N\,mdy=0$ \bfend УПД.\\
+$m=m(x),\; m(y),\; x^a y^b$
+}\vspace{1em}
+
+$\bullet$\;
+\parbox[t][]{\htext}{Выделение полного дифференциала\\
+$ d(xy),\; d(\frac{x}{y}),\; d(\ln|x|)$
+}
+
+}\vrule{} %*************************************************************First page second column
+\parbox[t][][t]{0.48\textwidth}{
+
+{\centering  % Не разрешенные
+\circled{$\scalebox{0.06}{\flex}_{\mkern-14mu 1}$} Ур. I порядка, не разреш. отн. производной\\
+$F(x,y,y')=0$\\
+}\vspace{0.5em}
+
+\circled{1}\,
+\parbox[t][]{\htext}{Разрешить отн. производной. Возможен метод решения\\ относительно $x(y)$, а не $y(x)$ :)
+}\vspace{1em}
+
+\circled{2}\,
+\parbox[t][]{\htext}{$F(x,y,y')$ разрешено отн. $y:\;\; y=f(x, y')$\\
+Пусть $p = y' = \cfrac{dy}{dx} \infers pdx = dy = \cfrac{\partial f}{\partial x}\, dx + \cfrac{\partial f}{\partial p}\, dp \infers$\\
+$M(x,p) dx + N(x,p) dp = 0$, обычное уравнение. Можно найти явное $p = p(x)$, а можно $x=x(p)$ \bfend тогда ответ\\
+$\left\{
+\begin{aligned}
+& x=x(p)\\
+& y = f(x(p),p)
+\end{aligned}
+\right.$
+}\vspace{1em}
+
+\circled{3}\,
+\parbox[t][]{\htext}{$F(x,y,y'):\;\; x = f(y, y')$\\
+Анал.: $p = y',\, \cfrac{dy}{p} = dx = d\, f(y, p) = \cfrac{\partial f}{\partial y}\, dy + \cfrac{\partial f}{\partial p}\, dp\infers\ldots$
+}
+
+\circled{4}\,
+\parbox[t][]{\htext}{Нахождение особых решений
+\begin{enumerate}
+\item[0.] Решить исходное уравнение
+\item $p$-дискриминантные кривые:
+$\left\{
+\begin{aligned}
+& F(x,y,p)=0\\
+& \partial F\, /\, \partial p = 0
+\end{aligned}
+\right.$\\
+\small{($p = y'$)}\vspace{1em}\\
+Избавляемся от $p$ в системе, ее решения \bfend\\ $y = y_1(x, c)$
+\item $y_1$ является решением исх. ур.?
+\item $y_1$ \bfend особое?\quad $\forall x_0\; \exists$ реш. $y_2(x):$
+$\left\{
+\begin{aligned}
+& y_1(x_0)=y_2(x_0)\\
+& y'_1(x_0)=y'_2(x_0)
+\end{aligned}
+\right.$\\
+То есть в любой своей точке особое решение\\ должно касаться другого решения системы.
+
+\end{enumerate}
+}
+
+\vspace{0.5em}
+
+
+{\centering  % Понижение
+\circled{$\scalebox{0.06}{\flex}_{\mkern-14mu 2}$} Ур. допускающие пониж. порядка производной\\
+}\vspace{0.5em}
+
+$\bullet$\,
+\parbox[t][]{\htext}{
+$y^{(n)}=f(x) \infers y^{(n-1)} = \int f(x)dx \infers \ldots $
+}\vspace{1em}
+
+
+$\bullet$\,
+\parbox[t][]{\htext}{$\circled{\crossed{$y$}}: F(x, y^{(k)}, \ldots y^{(n)}) = 0 \textinfers$ замена $y^{(k)}_{(x)}=z(x)$
+}\vspace{1em}
+
+$\bullet$\,
+\parbox[t][]{\htext}{$\circled{\crossed{$x$}}: F(y, y^{(1)}, \ldots y^{(n)}) = 0$\\
+Замена $y' = p(y(x)),\quad y'' = p'_y \cdot y'_x = p'p$\\
+\small{\it (не забудь $p'_y=\frac{dp}{dy}$\; \bfend \;$dy=0$)}
+}\vspace{1em}
+
+$\bullet$\,
+\parbox[t][]{\htext}{Однородное по $y, y', \ldots y^{(n)} \textinfers$ замена $y' = yz(x)$\\
+$y$ сократятся если ур. однородное
+}\vspace{1em}
+
+$\bullet$\,
+\parbox[t][]{\htext}{Выделение интегрируемых комбинаций\\
+$\cfrac{y^{(n)}}{y^{(n-1)}} = \left(\ln\left|\ y^{(n-1)} \right|\right)'$
+}
+
+\vspace{6em}
+
+\small{Семинарист \bfend Елена Александровна Павельева $\heartsuit$\\
+\url{https://github.com/lizzardhub/difurry}\\
+$\infers$ обозначает переходы между формулами\\}
+}
+
+
+% *************** Second page
+
+\noindent
+\parbox[t][][t]{0.48\textwidth}{
+\setstretch{1.1}
+
+{\centering % Const coeff, вариация постоянных, Эйлер
+\scalebox{1.8}{\romannum{1$'$}.} Линейные однор. n-ого порядка с const coeff\\
+\hspace{6em}\parbox[t][]{\htext}{
+\romannum{1} \quad $y^{(n)} + a_{n-1} y^{(n-1)} \ldots a_0 y^{(0)} = 0$\\
+\romannum{2} \quad $y^{(n)} + a_{n-1} y^{(n-1)} \ldots a_0 y^{(0)} = f(x)$
+}
+}\vspace{0.5em}
+
+\circled{\romannum{1}}\parbox[t][]{\htext}{\noindent\:
+Характеристич. уравнение: $\letus y = e^{\lambda x}$, находим $\lambda$\\
+\begin{tabular}{|l|l|}
+\hline
+\multicolumn{1}{|c|}{корень $\lambda$} & \multicolumn{1}{c|}{функции ФСР}\\
+\hline
+$\mathbb{R}$ кратности $k$ & $y_1(x)=e^{\lambda x},\ldots y_k(x)=x^{k - 1}e^{\lambda x}$\\
+\hline
+$\mathbb{C}$ кратности $k$ & $y_1(x) = e^{ax}\cos bx \;\ldots$\\
+($k$ пар $\lambda = a \pm ib$) & $y_k(x) = x^{k - 1}e^{ax}\cos bx$,\\
+ & $y_{k + 1}(x) = e^{ax}\sin bx \;\ldots$\\
+ & $y_{2k}(x) = x^{k - 1}e^{ax}\sin bx$\\
+\hline
+\end{tabular}\vspace{1em}
+$y_{\text{одн}}(x) = c_1 y_1(x) + \ldots + c_n y_n(x) \quad\forall c_1, \ldots, c_n$
+}
+
+\circled{\romannum{2}}\parbox[t][]{\htext}{\noindent\, Неодн. уравнение. $y_{\text{общ}}(x) =  y_{\text{однор}} + y_{\text{частное}}(x)$\\
+1. \parbox[t][]{\htext}{Первый специальный вид: $f(x) = P_k(x) e^{\newgamma x}\Rightarrow\;\\
+\Rightarrow\; y_\text{ч}(x) = x^s R_k(x) e^{\newgamma x}$\\
+$s = $ кратность $\newgamma$ в решениях хар. уравнения\\
+$R_k$ \bfend {\it неизвестный} многочлен $k$-ой степени\vspace{0.25em}
+}
+
+2. \parbox[t][]{\htext}{Второй: $f(x) = (P_k(x)\cos \beta x + R_m(x)\sin \beta x)\cdot e^{\alpha x}\Rightarrow\;\\
+\Rightarrow\; y_\text{ч}(x) = x^s (Q_n(x)\cos \beta x + T_n(x)\sin \beta x)\cdot e^{\alpha x}$\\
+$n = max(k, m)$, $s = $ кратность $\newgamma = \alpha + i\beta$\\
+(либо $\alpha - i\beta$, их кратности равны)\vspace{0.25em}
+}
+
+\parbox[t][]{\htext}{$f(x)$ \bfend сумма 1 и 2 спец. видов $\textinfers y_\text{ч}(x) = \sum y_{\text{спец}}$\vspace{1em}
+}
+
+\parbox[t][]{\htext}{Общий вид пр. части.\! {\bf Метод вар. постоянных}\\
+{Возможно $a_0, \ldots, a_{n-1}$ \bfend функции от $x$, т.е. не const!}\\
+\romannum{1} \quad $y_{\text{одн}}(x) = c_1 y_1(x) + \ldots + c_n y_n(x) \quad\forall c_1,\ldots c_n$\\
+\romannum{2} \quad $\letus y(x) = c_1(x) y_1(x) + \ldots + c_n(x) y_n(x) \infers$\\
+\small{\it (находим функции $c_1, c_2, \ldots c_n$ \bfend интегрируем)}\vspace{0.5em}\\
+$\left\{ \begin{aligned}
+& c'_1 y_1 \quad + &\ldots& + c'_n y_n = 0\\
+& c'_1 y'_1 \quad + & \ldots& + c'_n y'_n = 0\\
+& &\ldots&\\
+& c'_1 y^{(n - 2)}_1 + & \ldots& + c'_n y^{(n - 2)}_n = 0\\
+& c'_1 y^{(n - 1)}_1 + & \ldots& + c'_n y^{(n - 1)}_n = f(x)\\
+\end{aligned} \right. $\\
+}\vspace{1em}
+}
+
+$\bullet$\;
+\parbox[t][]{\hstext}{Ур. Эйлера\\
+$x^ny^{(n)} + a_{n-1}x^{n-1}y^{(n-1)} + \ldots + a_1xy' + a_0y = f(x)$
+\vspace{-0.5em}
+\begin{gather*}
+\text{Замена:}\;\; x =
+\begin{cases}
+e^t, &x > 0\\
+-e^t, &x < 0\\
+\end{cases},\;\; t = \ln (x),\;\; y(x) = Y(t(x)) .\\
+\text{Тогда } y' = Y'_t \cdot \cfrac{1}{x} \;\Rightarrow\; \underline{xy' = Y'}\\
+y'' = \left(Y' \cdot \cfrac{1}{x}\right)' = Y'' \cfrac{1}{x^2} - Y' \cfrac{1}{x^2} \;\Rightarrow\; \underline{x^2 y'' = Y'' - Y'}
+\end{gather*}
+\vbox{\vspace{-0.5em}Получили новое уравнение $Y(t)$. Правая часть спец. вида $\Rightarrow$ рассматриваем $x>0$ и $x<0$, решаем отн. $t$.
+Иначе вар. постоянных.}
+
+}
+\vspace{0.5em}
+
+{\centering % Ф О-Лиувилля
+\scalebox{1.8}{\romannum{2$'$}.} Линейные однор. ур. с переменными coeff\\
+$a_n(x) y^{(n)} +\ldots a_1(x) y' + a_0(x) y = f(x)$\\
+$y_1(x)$ \bfend решение, возможно, вида $e^{\alpha x}$ или многочлен\\ (его степень надо найти). Другое решение $y(x)$ найти по
+формуле {\bf Остроградского-Лиувилля}\\
+$\left|\begin{aligned}y_1(x)\;& y(x)\\y'_1(x)\;& y'(x)\end{aligned}\right| = ce^{-\bigintssss \cfrac{a_{n-1}(x)}{a_n(x)}\, dx} \quad \forall c$\\
+}\vspace{0.5em}
+
+}\vrule{} %********************************************Second page second column
+\parbox[t][][t]{0.48\textwidth}{
+{\centering % Матрицы однор
+\scalebox{1.8}{\romannum{3$'$}.} Линейные системы\\
+\circled{\romannum{1}}\quad $\mat{Y}' = A\mat{Y}$ -- однородные\\\vspace{0.5em}
+}
+
+$\letus \mat{Y} = \mat{\alpha} e^{\lambda t} \infers \mat{Y}' = \mat{\alpha}\lambda e^{\lambda t} \textinfers\\ (A - \lambda E)\mat{\alpha} = 0 \textinfers |A - \lambda E| = 0$\\
+Находим собств. значения $\lambda$ и с. векторы $\mat{\alpha}$.\\
+
+1) Нельзя оставлять $\mathbb{C}$ собств. значения! Делать так:\\
+$\lambda = \alpha\pm i\beta \Rightarrow \mat{Y} = \mat{\alpha} \cdot (\cos\beta t + i\sin\beta t)e^{\alpha t} = \mat{\alpha}_1 + i\mat{\alpha}_2 \Rightarrow$\\
+$\mat{Y}_{\text{одн}} = c_1\mat{\alpha}_1 + c_2\mat{\alpha}_2\quad \forall c_1, c_2$\\
+
+2) Если кол-во с. векторов меньше кратности с. значения:\\
+Допустим кратность $\lambda$ равна $3$\\
+ $\mat{Y} = (\mat{a}t^2 + \mat{\beta}t + \mat{\newgamma}) e^{\lambda t} \infers \mat{Y}' = 2\mat{\alpha}t + \mat{\beta}$, $A\mat{Y} = A\mat{\alpha}t^2 + A\mat{\beta}t + A\mat{\newgamma}$\\
+ $\mat{Y}' = A\mat{Y} \infers \left\{ \begin{aligned}
+A\mat{\alpha} &= \mat{0}\\
+A\mat{\beta} &= 2\mat{\alpha}\\
+A\mat{\newgamma} &= \mat{\beta}\\
+\end{aligned} \right. \infers A^3\mat{\newgamma} = \mat{0} \infers\ldots$\\
+Так находим все решения \bfend наборы $\{\mat{\alpha}, \mat{\beta}, \mat{\newgamma}\}$.\\
+
+
+Общее решение однородного уравнения\\
+$\mat{Y}_{\text{одн}} = c_1 \mat{\alpha}_1 e^{\lambda_1} + \ldots + c_n \mat{\alpha}_n e^{\lambda_n}\quad \forall c_1,\ldots c_n$\\
+
+{\centering \circled{\romannum{2}}\quad $\mat{Y}' = A\mat{Y} + \mat{F}$ -- неоднородные\\\vspace{0.5em}} % Матрицы неоднор
+
+1.\,
+\parbox[t][]{\htext}{Первый спец. вид. Если $\mat{F} = \mat{P_m}(t) \cdot e^{\newgamma t} =
+\begin{pmatrix} P_{m1}(t)\\ \ldots\\ P_{mn}(t) \end{pmatrix} e^{\newgamma t}$,\\ $m = max(m_1,\ldots ,m_n) \Rightarrow$
+$\mat{Y_1} = \mat{Q}_{m+s}(t) e^{\newgamma t}$\\ ($s=$ кратность $\newgamma$)
+}\vspace{0.5em}
+
+2.\,
+\parbox[t][]{\htext}{Второй спец. вид. $\mat{F} = (\mat{P_m}(t) \cos \beta t + \mat{Q_l}(t) \sin \beta t) \cdot e^{\alpha t}\\ \Rightarrow$
+$\mat{Y_1} = (\mat{R}_{k+s}(t) \cos \beta t + \mat{T}_{k+S}(t)\sin\beta t)\cdot e^{\alpha t}\\ k = max(m, l)$\\ ($s=$ кратность $\newgamma$)
+}\vspace{0.5em}
+
+\parbox[t][]{\htext}{$\mat{F}$ \bfend сумма специальных видов $\textinfers \mat{Y_1} = \sum y_{\text{спец}}$ % Комментарии нужны??
+}\vspace{0.5em}
+
+
+} %end column
+
+\end{document}
