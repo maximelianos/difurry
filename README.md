@@ -1,4 +1,4 @@
 # difurry
 2018 ВМК 3 семестр, семинары Е.А. Павельевой
 
-Вопросы - maximelianos.m@gmail.com
+Вопросы, предложения, просьбы - maximelianos.m@gmail.com
