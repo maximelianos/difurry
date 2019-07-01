@@ -294,9 +294,10 @@ $\bullet$\,
 $\cfrac{y^{(n)}}{y^{(n-1)}} = \left(\ln\left|\ y^{(n-1)} \right|\right)'$
 }
 
-\vspace{6em}
+\vspace{4em}
 
-\small{Семинарист \bfend Елена Александровна Павельева $\heartsuit$\\
+\small{Это \bfend шпаргалка, не учебник. Учебник \bfend Филиппов\\
+Семинарист \bfend Елена Александровна Павельева $\heartsuit$\\
 \url{https://github.com/lizzardhub/difurry}\\
 $\infers$ обозначает переходы между формулами\\}
 }
@@ -402,37 +403,38 @@ $\letus \mat{Y} = \mat{\alpha} e^{\lambda t} \infers \mat{Y}' = \mat{\alpha}\lam
 Находим собств. значения $\lambda$ и с. векторы $\mat{\alpha}$.\\
 
 1) Нельзя оставлять $\mathbb{C}$ собств. значения! Делать так:\\
+\small{\it (Аналогично обычным однородным линейным ур.,\\ только кратные с.з. имеют разные с.в.)}\\
 $\lambda = \alpha\pm i\beta \Rightarrow \mat{Y} = \mat{\alpha} \cdot (\cos\beta t + i\sin\beta t)e^{\alpha t} = \mat{\alpha}_1 + i\mat{\alpha}_2 \Rightarrow$\\
 $\mat{Y}_{\text{одн}} = c_1\mat{\alpha}_1 + c_2\mat{\alpha}_2\quad \forall c_1, c_2$\\
 
 2) Если кол-во с. векторов меньше кратности с. значения:\\
 Допустим кратность $\lambda$ равна $3$\\
- $\mat{Y} = (\mat{a}t^2 + \mat{\beta}t + \mat{\newgamma}) e^{\lambda t} \infers \mat{Y}' = 2\mat{\alpha}t + \mat{\beta}$, $A\mat{Y} = A\mat{\alpha}t^2 + A\mat{\beta}t + A\mat{\newgamma}$\\
- $\mat{Y}' = A\mat{Y} \infers \left\{ \begin{aligned}
-A\mat{\alpha} &= \mat{0}\\
-A\mat{\beta} &= 2\mat{\alpha}\\
-A\mat{\newgamma} &= \mat{\beta}\\
-\end{aligned} \right. \infers A^3\mat{\newgamma} = \mat{0} \infers\ldots$\\
+ $\mat{Y} = (\mat{\alpha}t^2 + \mat{\beta}t + \mat{\newgamma}) e^{\lambda t} \infers \mat{Y}' = (\mat{\alpha} 2t + \mat{\beta})e^{\lambda t} + (\mat{\alpha}t^2 + \mat{\beta} t + \newgamma)\lambda e^{\lambda t} = (\lambda \mat{\alpha}t^2 + (2\mat{\alpha} + \lambda\mat{\beta})t + (\mat{\beta} + \lambda\mat{\newgamma}) )e^{\lambda t}   $, $A\mat{Y} = A\mat{\alpha}t^2 + A\mat{\beta}t + A\mat{\newgamma}$\\
+ $\letus B = A - \lambda E.\;\;\mat{Y}' = A\mat{Y} \Rightarrow \left\{ \begin{aligned}
+B\mat{\alpha} &= \mat{0}\\
+B\mat{\beta} &= 2\mat{\alpha}\\
+B\mat{\newgamma} &= \mat{\beta}\\
+\end{aligned} \right. \infers B^3\mat{\newgamma} = \mat{0} \infers\ldots$\\
 Так находим все решения \bfend наборы $\{\mat{\alpha}, \mat{\beta}, \mat{\newgamma}\}$.\\
 
 
 Общее решение однородного уравнения\\
-$\mat{Y}_{\text{одн}} = c_1 \mat{\alpha}_1 e^{\lambda_1} + \ldots + c_n \mat{\alpha}_n e^{\lambda_n}\quad \forall c_1,\ldots c_n$\\
+$\mat{Y}_{\text{одн}} = c_1 \mat{\alpha}_1 e^{\lambda_1 t} + \ldots + c_n \mat{\alpha}_n e^{\lambda_n t}\quad \forall c_1,\ldots c_n$\\
 
 {\centering \circled{\romannum{2}}\quad $\mat{Y}' = A\mat{Y} + \mat{F}$ -- неоднородные\\\vspace{0.5em}} % Матрицы неоднор
 
 1.\,
 \parbox[t][]{\htext}{Первый спец. вид. Если $\mat{F} = \mat{P_m}(t) \cdot e^{\newgamma t} =
 \begin{pmatrix} P_{m1}(t)\\ \ldots\\ P_{mn}(t) \end{pmatrix} e^{\newgamma t}$,\\ $m = max(m_1,\ldots ,m_n) \Rightarrow$
-$\mat{Y_1} = \mat{Q}_{m+s}(t) e^{\newgamma t}$\\ ($s=$ кратность $\newgamma$)
+$\mat{Y_\text{ч}} = \mat{Q}_{m+s}(t) e^{\newgamma t}$\\ ($s=$ кратность $\newgamma$)
 }\vspace{0.5em}
 
 2.\,
 \parbox[t][]{\htext}{Второй спец. вид. $\mat{F} = (\mat{P_m}(t) \cos \beta t + \mat{Q_l}(t) \sin \beta t) \cdot e^{\alpha t}\\ \Rightarrow$
-$\mat{Y_1} = (\mat{R}_{k+s}(t) \cos \beta t + \mat{T}_{k+S}(t)\sin\beta t)\cdot e^{\alpha t}\\ k = max(m, l)$\\ ($s=$ кратность $\newgamma$)
+$\mat{Y_\text{ч}} = (\mat{R}_{k+s}(t) \cos \beta t + \mat{T}_{k+S}(t)\sin\beta t)\cdot e^{\alpha t}\\ k = max(m, l)$\\ ($s=$ кратность $\newgamma$)
 }\vspace{0.5em}
 
-\parbox[t][]{\htext}{$\mat{F}$ \bfend сумма специальных видов $\textinfers \mat{Y_1} = \sum y_{\text{спец}}$ % Комментарии нужны??
+\parbox[t][]{\htext}{$\mat{F}$ \bfend сумма специальных видов $\textinfers \mat{Y_\text{ч}} = \sum y_{\text{спец}}$ % Комментарии нужны??
 }\vspace{0.5em}
 
 
